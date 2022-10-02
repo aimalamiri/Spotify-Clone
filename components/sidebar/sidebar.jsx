@@ -5,7 +5,6 @@ import {
   Box,
   List,
   ListItem,
-  ListIcon,
   Divider,
   // Center,
   LinkBox,
@@ -19,6 +18,7 @@ import {
   MdPlaylistAdd,
   MdFavorite,
 } from 'react-icons/md'
+import MenuItem from './menuItem';
 
 const Sidebar = () => {
   const navMenu = [
@@ -69,44 +69,18 @@ const Sidebar = () => {
         <Box marginBottom="20px">
           <List spacing={2}>
             {navMenu.map((menu) => (
-              <ListItem paddingX="20px" fontSize="16px" key={menu.name}>
-                <LinkBox>
-                  <NextLink href={menu.route} passHref>
-                    <LinkOverlay>
-                      <ListIcon
-                        as={menu.icon}
-                        color="white"
-                        marginRigth="20px"
-                      />
-                      {menu.name}
-                    </LinkOverlay>
-                  </NextLink>
-                </LinkBox>
-              </ListItem>
+              <MenuItem menu={menu} />
             ))}
           </List>
         </Box>
         <Box marginTop="20px">
           <List spacing={2}>
             {musicMenu.map((menu) => (
-              <ListItem paddingX="20px" fontSize="16px" key={menu.name}>
-                <LinkBox>
-                  <NextLink href={menu.route} passHref>
-                    <LinkOverlay>
-                      <ListIcon
-                        as={menu.icon}
-                        color="white"
-                        marginRigth="20px"
-                      />
-                      {menu.name}
-                    </LinkOverlay>
-                  </NextLink>
-                </LinkBox>
-              </ListItem>
+              <MenuItem menu={menu} />
             ))}
           </List>
         </Box>
-        <Divider borderColor="gray.800" marginTop="20px" />
+        <Divider borderColor="gray.800" marginTop="20px"/>
         <Box height="61%" overflowY="auto" paddingY="20px">
           <List spacing={2}>
             {playlists.map((playlist) => (
